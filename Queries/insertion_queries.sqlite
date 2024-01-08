@@ -1,0 +1,11 @@
+--this query inserts one value into the monsters table
+INSERT INTO dnd_Monsters (Monster_Name) VALUES ('Aarakocra');
+INSERT INTO dnd_Monsters (Monster_Name) VALUES ('Abjurer');
+INSERT INTO dnd_Monsters (Monster_Name) VALUES ('Aboleth');
+INSERT INTO dnd_Monsters (Monster_Name) VALUES ('Abominable-Yeti');
+
+--this query inserts multiple values into the stats table
+INSERT INTO dnd_Stats (Monster_Name, AC, HP, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma) VALUES ('Aarakocra', '12', '13', '10', '14', '10', '11', '12','11');
+INSERT INTO dnd_Stats (Monster_Name, AC, HP, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma) VALUES ('Abjurer', '8', '13', '15', '14', '10', '11', '12','11');
+INSERT INTO dnd_Stats (Monster_Name, AC, HP, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma) VALUES ('Aboleth', '12', '17', '10', '18', '10', '11', '12','16');
+INSERT INTO dnd_Stats (Monster_Name, AC, HP, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma) VALUES ('Abominable-Yeti', '20', '13', '10', '14', '16', '11', '12','11'); 
