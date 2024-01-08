@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="D:/SQL/MonsterDB/dnd.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1507"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,12:maindnd_Monsters"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="dnd_Monsters" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="105"/><column index="3" value="40"/><column index="4" value="40"/><column index="5" value="105"/><column index="6" value="40"/><column index="7" value="40"/><column index="8" value="40"/><column index="9" value="48"/><column index="10" value="73"/><column index="11" value="77"/><column index="12" value="92"/><column index="13" value="66"/><column index="14" value="69"/><column index="15" value="87"/><column index="16" value="83"/><column index="17" value="58"/><column index="18" value="67"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="dnd_Stats" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="105"/><column index="3" value="40"/><column index="4" value="40"/><column index="5" value="66"/><column index="6" value="69"/><column index="7" value="87"/><column index="8" value="83"/><column index="9" value="58"/><column index="10" value="67"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="dnd_monsters" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="185"/><column index="2" value="300"/><column index="3" value="40"/><column index="4" value="214"/><column index="5" value="73"/><column index="6" value="90"/><column index="7" value="98"/><column index="8" value="58"/><column index="9" value="151"/><column index="10" value="77"/><column index="11" value="235"/><column index="12" value="66"/><column index="13" value="69"/><column index="14" value="87"/><column index="15" value="83"/><column index="16" value="58"/><column index="17" value="67"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">INSERT INTO dnd_Monsters (Monster_Name) VALUES ('Aarakocra');
+INSERT INTO dnd_Monsters (Monster_Name) VALUES ('Abjurer');
+INSERT INTO dnd_Monsters (Monster_Name) VALUES ('Aboleth');
+INSERT INTO dnd_Monsters (Monster_Name) VALUES ('Abominable-Yeti');
+SELECT ROWID, Monster_Name FROM dnd_Monsters;</sql><sql name="SQL 1 (1)">
+CREATE TABLE dnd_Monsters ( 
+	Monster_Name varchar(255) PRIMARY KEY,
+    URL varchar(255),
+    CR varchar(255),
+    Creature_Type varchar(255),
+    Size varchar(255),
+    Speed varchar(255),
+    Alignment varchar(255),
+    Legendary bool,
+    Source_Book varchar(255)
+	);
+
+	SELECT * FROM dnd_Monsters;
+
+PRAGMA table_info ('dnd_Monsters')
+
+DROP TABLE dnd_Monsters;
+</sql><sql name="SQL 1 (2)">
+CREATE TABLE dnd_Stats ( 
+	ID INTEGER PRIMARY KEY,
+	Monster_Name varchar(255),
+    AC int,
+    HP int,
+    Strength int,
+    Dexterity int,
+    Constitution int,
+    Intelligence int,
+    Wisdom int,
+    Charisma int,
+	FOREIGN KEY (Monster_Name) REFERENCES dnd_Monsters(Monster_Name)
+	);
+
+SELECT * FROM dnd_Stats
+
+INSERT INTO dnd_Stats (Monster_Name, AC, HP, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma) VALUES ('Aarakocra', '12', '13', '10', '14', '10', '11', '12','11');
+INSERT INTO dnd_Stats (Monster_Name, AC, HP, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma) VALUES ('Abjurer', '8', '13', '15', '14', '10', '11', '12','11');
+INSERT INTO dnd_Stats (Monster_Name, AC, HP, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma) VALUES ('Aboleth', '12', '17', '10', '18', '10', '11', '12','16');
+INSERT INTO dnd_Stats (Monster_Name, AC, HP, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma) VALUES ('Abominable-Yeti', '20', '13', '10', '14', '16', '11', '12','11'); 
+
+SELECT M.Monster_Name, Constitution, Creature_Type
+FROM dnd_Monsters M
+INNER JOIN dnd_Stats S ON M.Monster_Name = S.Monster_Name
+WHERE NOT Constitution = 10;</sql><current_tab id="0"/></tab_sql></sqlb_project>
