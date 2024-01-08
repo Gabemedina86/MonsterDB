@@ -1,0 +1,28 @@
+--this query creates the dnd_Monsters table with the Monster_Name column serving as the Primary Key
+CREATE TABLE dnd_Monsters ( 
+	Monster_Name varchar(255) PRIMARY KEY,
+    URL varchar(255),
+    CR varchar(255),
+    Creature_Type varchar(255),
+    Size varchar(255),
+    Speed varchar(255),
+    Alignment varchar(255),
+    Legendary bool,
+    Source_Book varchar(255)
+	);
+
+--this query creates the dnd_Stats table with the Monster_Name column serving as the Primary Key for the Stats table and as a foreign key to Monsters key
+CREATE TABLE dnd_Stats ( 
+	ID INTEGER PRIMARY KEY,
+	Monster_Name varchar(255),
+    AC int,
+    HP int,
+    Strength int,
+    Dexterity int,
+    Constitution int,
+    Intelligence int,
+    Wisdom int,
+    Charisma int,
+	FOREIGN KEY (Monster_Name) REFERENCES dnd_Monsters(Monster_Name)
+	);
+
