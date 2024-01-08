@@ -1,0 +1,5 @@
+--this query extrats data from two tables by joining them with a common column
+SELECT M.Monster_Name, Constitution, Creature_Type
+FROM dnd_Monsters M
+INNER JOIN dnd_Stats S ON M.Monster_Name = S.Monster_Name
+WHERE NOT Constitution = 10;
